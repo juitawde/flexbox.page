@@ -1,3 +1,4 @@
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
@@ -5,13 +6,19 @@
     font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* ===== TOPBAR ===== */
+body {
+    background: #eef2ff;
+}
 
+/* ===== TOPBAR ===== */
 .topbar {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
     padding: 12px 20px;
-    background: #c7d2fe; /* pastel lavender-blue */
+    background: #c7d2fe;
     color: #374151;
 }
 
@@ -21,14 +28,13 @@
     cursor: pointer;
     transition: color 0.3s ease;
 }
-
 .logo:hover {
     color: #6366f1;
 }
 
 .search {
-    margin-left: 20px;
     flex: 1;
+    min-width: 150px;
     padding: 8px 12px;
     border-radius: 8px;
     border: none;
@@ -36,76 +42,81 @@
     background: #eef2ff;
     transition: box-shadow 0.3s ease;
 }
-
 .search:focus {
-    box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.6);
+    box-shadow: 0 0 0 3px rgba(165,180,252,0.6);
 }
 
 .admin {
-    margin-left: 20px;
     cursor: pointer;
     transition: color 0.3s ease;
 }
-
 .admin:hover {
     color: #6366f1;
 }
 
 /* ===== MAIN LAYOUT ===== */
-
 .layout {
     display: flex;
-    height: calc(100vh - 50px);
+    gap: 25px;
+    padding: 25px;
+    height: calc(100vh - 60px);
+    overflow-x: auto; /* allows scrolling if screen very small */
 }
 
 /* ===== SIDEBAR ===== */
-
 .sidebar {
-    width: 220px;
-    background: #e0e7ff; /* pastel indigo */
+    flex: 0 0 180px;     /* fixed base but flexible */
+    min-width: 140px;
+
+    background: #e0e7ff;
     color: #374151;
+
     display: flex;
     flex-direction: column;
-    padding: 20px;
     gap: 18px;
+    padding: 20px;
+
+    border-radius: 16px;
 }
 
 .sidebar a {
-    color: #374151;
     text-decoration: none;
+    color: #374151;
     padding: 10px;
     border-radius: 8px;
     transition: background 0.3s ease, padding-left 0.3s ease;
 }
-
 .sidebar a:hover {
     background: #c7d2fe;
     padding-left: 16px;
 }
 
-/* ===== CONTENT ===== */
-
+/* ===== CONTENT PANEL ===== */
 .content {
     flex: 1;
+    min-width: 0; /* critical for flex shrink */
     padding: 25px;
-    background: #f8fafc; /* very light pastel background */
+    background: #f8fafc;
+    border-radius: 16px;
+
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 /* ===== CARD ROW ===== */
-
 .card-row {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap; /* cards move down automatically */
 }
 
 /* ===== SMALL CARDS ===== */
-
 .card {
-    flex: 1;
-    background: #fde2e4; /* pastel pink */
+    flex: 1 1 180px;
+    min-width: 150px;
+
+    background: #fde2e4;
     padding: 25px;
     border-radius: 14px;
     text-align: center;
@@ -123,10 +134,11 @@
 }
 
 /* ===== BIG CARDS ===== */
-
 .big-card {
-    flex: 1;
-    background: #a7f3d0; /* pastel mint green */
+    flex: 1 1 260px;
+    min-width: 220px;
+
+    background: #a7f3d0;
     color: #065f46;
     padding: 40px;
     border-radius: 14px;
